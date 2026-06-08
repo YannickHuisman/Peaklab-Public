@@ -1,0 +1,18 @@
+{
+  "files": [],
+  "references": [
+    { "path": "../../packages/api" },
+    { "path": "../../packages/types" },
+    { "path": "../../packages/utils" },
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@package/api": ["../../packages/api"],
+      "@package/types": ["../../packages/types"],
+      "@package/utils": ["../../packages/utils"]
+    }
+  }
+}

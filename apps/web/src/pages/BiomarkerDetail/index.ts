@@ -1,0 +1,1 @@
+export { BiomarkerDetail } from './BiomarkerDetail';

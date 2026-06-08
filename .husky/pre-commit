@@ -1,0 +1,3 @@
+#!/bin/sh
+pnpm -r exec tsc --noEmit
+pnpm exec lint-staged

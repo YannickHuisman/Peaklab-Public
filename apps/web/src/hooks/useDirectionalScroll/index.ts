@@ -1,0 +1,1 @@
+export { useDirectionalScroll } from './useDirectionalScroll';

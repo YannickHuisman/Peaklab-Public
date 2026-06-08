@@ -1,0 +1,1 @@
+export { BiomarkerHistoryChart } from './BiomarkerHistoryChart';

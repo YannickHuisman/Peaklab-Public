@@ -1,0 +1,1 @@
+export { calculateBMI } from './calculations';

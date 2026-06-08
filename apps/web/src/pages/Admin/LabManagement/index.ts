@@ -1,0 +1,1 @@
+export { LabManagement } from './LabManagement';

@@ -1,0 +1,1 @@
+export { BiomarkerConfig } from './BiomarkerConfig';

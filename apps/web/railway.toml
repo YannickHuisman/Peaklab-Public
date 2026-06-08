@@ -1,0 +1,9 @@
+# Railway configuration for web/frontend service
+# This file tells Railway how to build and serve the React app
+
+[build]
+builder = "NIXPACKS"
+buildCommand = "pnpm install && pnpm build && pnpm --filter web build"
+
+[deploy]
+startCommand = "cd apps/web && npx --yes serve -s dist -l ${PORT:-8080}"

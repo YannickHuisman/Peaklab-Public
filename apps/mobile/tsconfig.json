@@ -1,0 +1,15 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@package/api": ["../../packages/api"],
+      "@package/schemas": ["../../packages/schemas"],
+      "@package/types": ["../../packages/types"],
+      "@package/ui": ["../../packages/ui"],
+      "@package/utils": ["../../packages/utils"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "types/**/*.d.ts"]
+}
