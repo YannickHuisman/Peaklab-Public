@@ -1,0 +1,38 @@
+import { StyledButton } from './styles';
+import type { StyledButtonProps } from './types';
+
+interface ButtonProps extends StyledButtonProps {
+  label?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  children?: React.ReactNode;
+  style?: React.CSSProperties;
+  title?: string;
+  id?: string;
+  'aria-label'?: string;
+  'aria-haspopup'?: React.AriaAttributes['aria-haspopup'];
+  'aria-expanded'?: React.AriaAttributes['aria-expanded'];
+  'aria-controls'?: string;
+  'aria-current'?: React.AriaAttributes['aria-current'];
+}
+
+export function Button({
+  label,
+  type = 'button',
+  disabled,
+  onClick,
+  children,
+  ...props
+}: ButtonProps) {
+  if ((label && children) || (!label && !children)) {
+    throw new Error('Button must have either label or children, but not both.');
+  }
+
+  return (
+    <StyledButton type={type} onClick={onClick} disabled={disabled} {...props}>
+      {children ?? label}
+    </StyledButton>
+  );
+}

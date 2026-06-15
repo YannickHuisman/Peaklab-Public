@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@package/api": ["./packages/api"],
+      "@package/schemas": ["./packages/schemas"],
+      "@package/types": ["./packages/types"],
+      "@package/utils": ["./packages/utils"]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "peaklab-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm turbo run dev",
+    "build": "pnpm turbo run build",
+    "lint": "pnpm turbo run lint",
+    "lint:fix": "pnpm turbo run lint:fix",
+    "format": "prettier --write .",
+    "cib": "rm -rf node_modules pnpm-lock.yaml ~/.pnpm-store && find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' + && pnpm install && pnpm build",
+    "prepare": "husky",
+    "seed:dump": "bash scripts/seed.dump.sh",
+    "seed": "bash scripts/seed.sh",
+    "seed:mock": "bash scripts/seed.mock.sh",
+    "seed:bloodtests": "bash scripts/seed.bloodtests.sh"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "turbo": "^1.13.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.24.2",
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "react-is": "19.1.0"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Peaklab",
+  "short_name": "Peaklab",
+  "description": "Biomarker platform voor sporters",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0C1722",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/icoon-logo-wit-transparant.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icoon-logo-wit-transparant.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icoon-logo-wit-transparant.svg",
+      "sizes": "540x720",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icoon-logo-wit-transparant.svg",
+      "sizes": "1080x1440",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["health", "fitness"]
+}

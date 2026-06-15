@@ -1,0 +1,7 @@
+#!/bin/sh
+# Lint + auto-fix ONLY staged files, then re-stage the fixes so they land in the
+# commit. Runs identically from the terminal and from GUI clients (GitHub Desktop).
+pnpm exec lint-staged
+
+# Full type-check across the workspace — catches type errors lint can't see.
+pnpm -r exec tsc --noEmit

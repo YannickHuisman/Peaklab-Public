@@ -1,0 +1,1 @@
+export { BiomarkerCard } from './BiomarkerCard';

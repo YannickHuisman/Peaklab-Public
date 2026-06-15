@@ -1,0 +1,1 @@
+export { useBiomarkerContent } from './useBiomarkerContent';

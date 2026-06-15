@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsup",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "node dist/server.js",
+    "cib": "rm -rf node_modules pnpm-lock.yaml ~/.pnpm-store && find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' + && pnpm install && pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mistralai/mistralai": "^1.5.0",
+    "@package/types": "workspace:*",
+    "@package/utils": "workspace:*",
+    "@supabase/auth-js": "^2.67.3",
+    "@supabase/supabase-js": "^2.47.9",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "multer": "^2.0.2",
+    "openai": "^6.15.0",
+    "stripe": "^22.2.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.19.1",
+    "esbuild": "0.24.2",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2"
+  }
+}

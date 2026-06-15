@@ -1,0 +1,67 @@
+name: Deploy to Production
+
+# Manual-only in this public showcase. In the real repo this runs automatically
+# on push to `main`; it is disabled here so it doesn't run (and fail)
+# without the required secrets.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Trigger Railway production deployment
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run ESLint
+        run: pnpm exec eslint .
+
+      - name: Build all packages
+        run: pnpm build
+
+      # Apply DB migrations BEFORE the new backend code goes live, so the schema
+      # is always ahead of the code that depends on it. db push is idempotent —
+      # it only runs migrations not yet recorded in schema_migrations.
+      - name: Set up Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Apply database migrations
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        run: |
+          supabase link --project-ref ${{ vars.SUPABASE_PROJECT_REF }}
+          supabase db push
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy backend to production
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN_PRODUCTION }}
+        run: railway up --service backend --environment production --detach
+
+      - name: Deploy web to production
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN_PRODUCTION }}
+        run: railway up --service web --environment production --detach

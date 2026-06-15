@@ -1,0 +1,1 @@
+export { PartnerIntake } from './PartnerIntake';

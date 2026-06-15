@@ -1,0 +1,1 @@
+export { TrophyCase } from './TrophyCase';

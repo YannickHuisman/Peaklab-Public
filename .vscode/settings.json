@@ -1,0 +1,28 @@
+{
+  // Run ESLint's auto-fix on every save. Because `prettier/prettier` is wired in
+  // as an ESLint rule (eslint-plugin-prettier), this single action handles both
+  // linting AND formatting for JS/TS — identical to the pre-commit lint-staged step.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.useFlatConfig": true,
+
+  // Non-JS files aren't covered by ESLint, so format them with Prettier directly
+  // (mirrors the `*.{json,css,md}` glob in .lintstagedrc.js).
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
+}

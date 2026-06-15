@@ -1,0 +1,1 @@
+export { getClickableProps } from './getClickableProps';
