@@ -55,7 +55,7 @@ Shared configuration (TypeScript, ESLint, Prettier) lives at the root and is ext
 
 The project is set up to stay maintainable as it grows:
 
-- **Strict TypeScript** across the entire monorepo (~96% of the codebase).
+- **Strict TypeScript** across the entire monorepo.
 - **Turborepo** for fast, cached builds and task orchestration.
 - **Consistent code style** enforced with ESLint and Prettier (shared configs).
 - **Conventional commits** enforced via commitlint.
